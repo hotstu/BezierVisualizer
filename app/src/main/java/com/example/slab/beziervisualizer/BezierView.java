@@ -236,8 +236,10 @@ public class BezierView extends View {
     }
 
     private void showAnimate() {
+        setLayerType(View.LAYER_TYPE_HARDWARE, null);
         if (moveAnimator != null && moveAnimator.isStarted()) {
             moveAnimator.removeAllUpdateListeners();
+            moveAnimator.removeAllListeners();
             moveAnimator.cancel();
         }
         bezierCurvePath.reset();
